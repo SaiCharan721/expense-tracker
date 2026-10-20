@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: expense-api
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/expense_tracker}
+      auto-index-creation: true
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    # Dev-only default. Use a real base64 secret (256-bit or longer) via JWT_SECRET.
+    # report-service must use the same value to verify tokens.
+    secret: ${JWT_SECRET:ZGV2LW9ubHktc2VjcmV0LWNoYW5nZS1tZS1pbi1wcm9kdWN0aW9uLTEyMzQ1Njc4OTA=}
+    ttl-minutes: ${JWT_TTL_MINUTES:240}
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
+  budget:
+    warning-percent: 80
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
