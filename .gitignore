@@ -1,0 +1,17 @@
+# Java / Maven
+expense-api/target/
+*.class
+*.log
+
+# Node
+node_modules/
+frontend/dist/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Local env
+.env
